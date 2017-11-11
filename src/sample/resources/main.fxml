@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="600.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.resources.MainController">
+   <top>
+      <BorderPane prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #7A67EE;" BorderPane.alignment="CENTER">
+         <left>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../drawable/icon.JPG" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </left>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="offLineButton" mnemonicParsing="false" onAction="#onOffLineButtonClick" prefHeight="23.0" prefWidth="61.0" text="下线">
+                     <VBox.margin>
+                        <Insets right="10.0" top="30.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="clientList" prefHeight="490.0" prefWidth="200.0" style="-fx-border-image-width: 0;">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ListView>
+            <HBox prefHeight="44.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="addTextArea" />
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="52.0" prefWidth="53.0" text="添加" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox fx:id="currentClient" prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="currentLabel" alignment="CENTER" prefHeight="65.0" prefWidth="141.0" text="离线消息盒" textFill="#574f4f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="460.0" prefWidth="800.0" vbarPolicy="ALWAYS">
+               <content>
+                  <ListView fx:id="chatPane" prefHeight="447.0" prefWidth="800.0" />
+               </content>
+            </ScrollPane>
+            <HBox prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="sendTextField" prefHeight="40.0" prefWidth="650.0" />
+                  <Button fx:id="sendButton" mnemonicParsing="false" onAction="#onSendButtonClick" prefHeight="40.0" prefWidth="100.0" text="Button" />
+                  <Button fx:id="selectButton" mnemonicParsing="false" onAction="#onSelectButtonClick" prefHeight="40.0" prefWidth="50.0" text="+" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
