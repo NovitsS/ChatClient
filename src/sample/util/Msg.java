@@ -11,6 +11,7 @@ public class Msg implements Serializable{
     public String isOnLine=null;
     public String id=null;
     public String icon;
+    public int port;
 
     public String getIcon() {
         return icon;
@@ -66,5 +67,13 @@ public class Msg implements Serializable{
 
     public void setMsgContent(String msgContent) {
         this.msgContent = msgContent;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }

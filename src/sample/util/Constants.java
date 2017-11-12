@@ -8,12 +8,16 @@ public class Constants {
     public static final String LoginSrc = "resources/login.fxml";
     public static final String MainSrc = "resources/main.fxml";
 
-    public static String USER_CURRENT = "离线消息";
+
     public static String IP_SERVER="127.0.0.1";
-    public static String IP_CURRENT_CLIENT="127.0.0.1";
     public static String IP_ME = "127.0.0.1";
-    public static final int PORT_TCP_CLIENT=9876;
-    public static final int PORT_TCP_SERVER=9875;
+
+    public static String IP_CURRENT_CLIENT="127.0.0.1";
+    public static int PORT_CURRENT_CLIENT=9875;
+    public static String USER_CURRENT = "离线消息";
+
+    public static int PORT_TCP_CLIENT=9876;
+    public static int PORT_TCP_SERVER=9875;
 
     public static final String ERROR_SERVER="服务器无连接";
     public static final String ERROR_illegal="账号或密码不合法";
@@ -36,6 +40,7 @@ public class Constants {
     public static final String KIND_ADD = "add";
     public static final String KIND_OFFLINE_MSG = "offline_msg";
     public static final String KIND_OFFLINE = "offline";
+    public static final String KIND_REQUEST_OFFLINE_MSG = "request_offline_msg";
 
     public static void setServerIP(String IP){
         IP_SERVER=IP;

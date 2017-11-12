@@ -12,7 +12,6 @@ import sample.NetWork.TcpServer;
 import sample.NetWork.UdpReceiver;
 import sample.resources.Controller;
 import sample.util.Msg;
-import sample.util.MsgContent;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -24,7 +23,6 @@ public class Main extends Application {
     private static Stage stage;
     private static Controller controller;
     public static HashMap<String,ArrayList<Msg>> map;
-    public static ArrayList<MsgContent> observableList;
     public static UdpReceiver udpReceiver=null;
 
     @Override

@@ -5,6 +5,7 @@ import sample.util.ClientTarget;
 import sample.util.Msg;
 
 public interface Controller {
+
     void onLoginButtonClick(ActionEvent event);
     void onRegisterButtonClick(ActionEvent event);
     void onReverseButtonClick(ActionEvent event);

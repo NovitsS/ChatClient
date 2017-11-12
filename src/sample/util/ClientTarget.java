@@ -5,6 +5,7 @@ public class ClientTarget {
     public String Ip;
     public String isOnLine;
     public String beforeString;
+    public int port;
 
     public String getId() {
         return Id;
@@ -36,5 +37,13 @@ public class ClientTarget {
 
     public void setBeforeString(String beforeString) {
         this.beforeString = beforeString;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }

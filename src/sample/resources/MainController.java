@@ -54,9 +54,7 @@ public class MainController implements Initializable,Controller{
     private TextField addTextArea;
     @FXML
     private Label currentLabel;
-
     private static String isOnline;
-
 
 
     @FXML
@@ -72,7 +70,7 @@ public class MainController implements Initializable,Controller{
             msg.setMsgContent(content);
             msg.setIcon("default.png");
             msg.setId(Constants.Me);
-            TcpClient.sendDataToClient(Constants.KIND_CLIENT,Constants.IP_CURRENT_CLIENT,Constants.PORT_TCP_CLIENT,msg);
+            TcpClient.sendDataToClient(Constants.KIND_CLIENT,Constants.IP_CURRENT_CLIENT,Constants.PORT_CURRENT_CLIENT,msg);
         }else{
             DataPacket dataPacket = new DataPacket(Constants.KIND_OFFLINE_MSG);
             dataPacket.setTargetId(Constants.IP_CURRENT_CLIENT);
@@ -114,14 +112,13 @@ public class MainController implements Initializable,Controller{
         if(JFileChooser.APPROVE_OPTION==result){
             path=fileChooser.getSelectedFile().getPath();
             System.out.println(path);
-            UdpSender udpSender = new UdpSender("10.11.60.82", 9980, path);
+            UdpSender udpSender = new UdpSender(Constants.IP_CURRENT_CLIENT,Constants.PORT_CURRENT_CLIENT, path);
             udpSender.startSend();
             showRecoverText("Me：开始发送"+path+"  ... ...");
         }
         //TODO:调用UDP发包线程
         sendTextField.setText(path);
     }
-
 
     public static void showRecoverText(String content){
 
@@ -136,9 +133,13 @@ public class MainController implements Initializable,Controller{
         clientTarget.setIsOnLine("true");
         clientTarget.setIp("127.0.0.1");
         clientTarget.setId("离线消息");
+        clientTarget.setPort(Constants.PORT_TCP_CLIENT);
         reListView(clientTarget);
+
         setChatPane(Main.map.get("离线消息"));
-        Constants.IP_CURRENT_CLIENT="127.0.0.1";
+
+        Constants.IP_CURRENT_CLIENT = clientTarget.getIp();
+        Constants.PORT_CURRENT_CLIENT = clientTarget.getPort();
         Constants.USER_CURRENT = clientTarget.getId();
         isOnline = "true";
 
@@ -150,11 +151,19 @@ public class MainController implements Initializable,Controller{
                         setChatPane(Main.map.get(t1.getId()));
                         Constants.IP_CURRENT_CLIENT = t1.getIp();
                         Constants.USER_CURRENT = t1.getId();
+                        Constants.PORT_CURRENT_CLIENT = t1.getPort();
                         isOnline = t1.getIsOnLine();
                     }
                 });
 
-        //TODO:向服务器发送请求离线消息
+        requestOfflineMsg();
+    }
+
+    private void requestOfflineMsg(){
+        DataPacket dataPacket=new DataPacket(Constants.KIND_REQUEST_OFFLINE_MSG);
+        dataPacket.setUserAccount(Constants.Me);
+        dataPacket.setUserIP(Constants.IP_ME);
+        TcpClient.sendDataToServer(Constants.KIND_SERVER,Constants.IP_SERVER,Constants.PORT_TCP_SERVER,dataPacket);
     }
 
     public void reListView(final ClientTarget clientTarget){

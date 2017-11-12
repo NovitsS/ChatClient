@@ -40,18 +40,25 @@ public class LoginController implements Initializable,Controller{
     @FXML
     private TextField ipText;
     @FXML
-    private PasswordField newPasswordText;
+    private TextField locateIpText;
+    @FXML
+    private TextField port;
+
     private String ip;
 
     @FXML
     public void onLoginButtonClick(ActionEvent event){
         ip=ipText.getText();
-        String me = newPasswordText.getText();
+        String me = locateIpText.getText();
+
         Constants.setIpMe(me);
         Constants.setServerIP(ip);
+        Constants.PORT_TCP_CLIENT = Integer.parseInt(port.getText());
+
         String accountContent=accountText.getText();
         Constants.Me = accountContent;
         String passwordContent=passwordText.getText();
+
         if(accountContent.length()==0||accountContent.contains(" ")||passwordContent.length()==0||passwordContent.contains(" ")){
             setLoginLabel(Constants.ERROR_illegal);
         }else{
@@ -59,6 +66,7 @@ public class LoginController implements Initializable,Controller{
             dataPacket.setUserAccount(accountContent);
             dataPacket.setUserPassword(passwordContent);
             dataPacket.setUserIP(Constants.IP_ME);
+            dataPacket.setPort(Constants.PORT_TCP_CLIENT);
             TcpClient.sendDataToServer(Constants.KIND_SERVER,ip,Constants.PORT_TCP_SERVER,dataPacket);
         }
     }
@@ -101,7 +109,7 @@ public class LoginController implements Initializable,Controller{
         Constants.setServerIP(ip);
         String accountContent = accountText.getText();
         String passwordContent = passwordText.getText();
-        String newPasswordContent = newPasswordText.getText();
+        String newPasswordContent = null;
         if(accountContent.length()==0||accountContent.contains(" ")||passwordContent.length()==0||passwordContent.contains(" ")||newPasswordContent.length()==0||newPasswordContent.contains(" ")){
             setLoginLabel(Constants.ERROR_illegal);
         }else{

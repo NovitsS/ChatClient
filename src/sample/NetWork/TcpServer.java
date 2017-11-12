@@ -1,19 +1,14 @@
 package sample.NetWork;
 
 
-import javafx.fxml.Initializable;
 import sample.Main;
 import sample.resources.Controller;
 import sample.util.ClientTarget;
 import sample.util.Constants;
-import sample.resources.MainController;
 import sample.util.Msg;
-import sample.util.MsgContent;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -106,6 +101,7 @@ public class TcpServer {
                     clientTarget.setId(msg.getId());
                     clientTarget.setIp(msg.getIp());
                     clientTarget.setIsOnLine(msg.getIsOnLine());
+                    clientTarget.setPort(msg.getPort());
                     controller.reListView(clientTarget);
                     if(!Main.map.containsKey(msg.getId())){
                         Main.map.put(msg.getId(),new ArrayList<Msg>());

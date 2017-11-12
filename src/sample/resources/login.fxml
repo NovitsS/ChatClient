@@ -32,16 +32,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="145.0" text="账号：" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="accountText" prefHeight="23.0" prefWidth="298.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="148.0" text="密码：" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <PasswordField fx:id="passwordText" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="142.0" text="服务器IP:" GridPane.columnIndex="1" />
-            <TextField fx:id="ipText" GridPane.columnIndex="2" />
-            <Label alignment="CENTER" prefHeight="33.0" prefWidth="154.0" text="新密码：" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <PasswordField fx:id="newPasswordText" prefHeight="23.0" prefWidth="111.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="158.0" text="本机IP:" GridPane.columnIndex="1" />
+            <TextField fx:id="port" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="locateIpText" GridPane.columnIndex="2" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="145.0" text="账号：" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="accountText" prefHeight="23.0" prefWidth="298.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="148.0" text="密码：" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <PasswordField fx:id="passwordText" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="142.0" text="服务器IP:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="ipText" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="154.0" text="端口号：" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="601.0" text="Welcome" textAlignment="CENTER">
